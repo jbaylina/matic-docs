@@ -103,6 +103,7 @@ IBFT limits network participation to around 100 validators. A variable amount of
 stake criterion to limit the system's security and can make the system economically vulnerable. The
 validator set in the PolyBFT does not update on each block but is fixed during  `n` block periods known as
 an `epoch`.
+
 > The `n` block period to define one epoch is to be determined by governance. Until then, validators will remain the same.
 > At the end of the epoch, a special `state transaction` to `validatorSetManagementContract` is emitted, notifying
 > the system about validators’ uptime during the `epoch`. It is up to the smart contract to reward validators by their uptime
@@ -175,24 +176,24 @@ typically follow the steps below.
    > the network. This means that validators with more stake will have more voting power and, therefore, more influence over the
    > decision-making process on the network.
 
- The process to finalize a block in PolyBFT is known as *sealing*. The sealing of blocks is instant
- and final. All nodes in the network exchange information
- for a given sequence. The protocol refers to block height as a *sequence*.
+    The process to finalize a block in PolyBFT is known as *sealing*. The sealing of blocks is instant
+    and final. All nodes in the network exchange information
+    for a given sequence. The protocol refers to block height as a *sequence*.
 
- When a validator proposes a new block, other validators on the network will vote on whether to accept the block.
- This process is typically repeated several times; each repetition is known as a *round*. During each round, a certain
- number of validators must agree to seal the proposed block for it to be added to the blockchain. If the required
- number of votes is not reached during a particular round, the voting process will continue into the next round, and thus,
- the protocol "increases the round". Another validator will attempt to seal the sequence in the new round.
- > The best case for a proposed block is that it is sealed at round 0. If blocks are repeatedly being sealed at a high-order
- > round, which usually indicates a problem with the network.
+    When a validator proposes a new block, other validators on the network will vote on whether to accept the block.
+    This process is typically repeated several times; each repetition is known as a *round*. During each round, a certain
+    number of validators must agree to seal the proposed block for it to be added to the blockchain. If the required
+    number of votes is not reached during a particular round, the voting process will continue into the next round, and thus,
+    the protocol "increases the round". Another validator will attempt to seal the sequence in the new round.
+    > The best case for a proposed block is that it is sealed at round 0. If blocks are repeatedly being sealed at a high-order
+    > round, which usually indicates a problem with the network.
 
-1. If the proposed block is accepted, it will be added to the blockchain, and the state of the blockchain will be updated to
+3. If the proposed block is accepted, it will be added to the blockchain, and the state of the blockchain will be updated to
    reflect the changes introduced by the transactions in the block.
    > If a malicious actor attempted to fork the network, they would need to obtain control of 2/3 of the network, which PolyBFT
    > prevents.
 
-2. Once the state of the blockchain has been updated, the next proposer will propose a new block, and the process repeats.
+4. Once the state of the blockchain has been updated, the next proposer will propose a new block, and the process repeats.
 
 :::caution Slashing
 
