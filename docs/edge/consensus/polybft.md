@@ -155,33 +155,6 @@ best interests.
   node subsets lock to two different blocks, the system enters into an infinite cycle of state transitions
   that cannot converge states and finalize the block.
 
-## Security
-
-IBFT limits network participation to around 100 validators. A variable amount of stake is used as a fixed
-stake criterion to limit the system's security and can make the system economically vulnerable. The
-validator set in the PolyBFT does not update on each block but is fixed during  `n` block periods known as
-an `epoch`.
-
-> The `n` block period to define one epoch is to be determined by governance. Until then, validators will
-> remain the same. At the end of the epoch, a special `state transaction` to `validatorSetManagementContract`
-> is emitted, notifying the system about validators’ uptime during the `epoch`. It is up to the smart contract
-> to reward validators by their uptime and **update the validator set** for the next `epoch`. There is a
-> function `getValidatorSet` which returns the current validator set at any time.
-
-Staking is governed by staking contracts directly on Polygon. To be clear, the staking module validates on
-Polygon and does not rely on Ethereum's security, but in principle, two chains are securing the network, PoS
-client and Ethereum. Transaction checkpoints still occur on Ethereum, but Ethereum does not validate staking
-on Polygon.
-
-:::note
-
-Note that in Tendermint, an epoch is set to 1. However, PolyBFT includes the logic to set a custom
-epoch time, with the intent of each epoch being one day in blocks, or around 14000 blocks.
-
-:::
-
-A reward calculation occurs at the end of the epoch to reward the active validators in that epoch.
-
 ## Consensus protocol: PolyBFT
 
 The consensus protocol uses the IBFT consensus engine and proof-of-stake architecture to seal blocks,
@@ -211,30 +184,57 @@ process will typically follow the steps below.
     for it to be added to the blockchain. If the required number of votes is not reached during a
     particular round, the voting process will continue into the next round, and thus, the protocol
     "increases the round". Another validator will attempt to seal the sequence in the new round.
-    > The best case for a proposed block is that it is sealed at round 0. If blocks are repeatedly being sealed at a high-order
-    > round, which usually indicates a problem with the network.
+    > The best case for a proposed block is that it is sealed at round 0. If blocks are repeatedly being
+    > sealed at a high-order round, which usually indicates a problem with the network.
 
-3. If the proposed block is accepted, it will be added to the blockchain, and the state of the blockchain will be updated to
-   reflect the changes introduced by the transactions in the block.
-   > If a malicious actor attempted to fork the network, they would need to obtain control of 2/3 of the network, which PolyBFT
-   > prevents.
+3. If the proposed block is accepted, it will be added to the blockchain, and the state of the blockchain
+   will be updated to reflect the changes introduced by the transactions in the block.
+   > If a malicious actor attempted to fork the network, they would need to obtain control of 2/3 of
+   > the network, which PolyBFT prevents.
 
-4. Once the state of the blockchain has been updated, the next proposer will propose a new block, and the process repeats.
+4. Once the state of the blockchain has been updated, the next proposer will propose a new block, and
+   the process repeats.
+
+IBFT limits network participation to around 100 validators. A variable amount of stake is used as a fixed
+stake criterion to limit the system's security and can make the system economically vulnerable. The
+validator set in the PolyBFT does not update on each block but is fixed during  `n` block periods known as
+an `epoch`.
+
+> The `n` block period to define one epoch is to be determined by governance. Until then, validators will
+> remain the same. At the end of the epoch, a special `state transaction` to `validatorSetManagementContract`
+> is emitted, notifying the system about validators’ uptime during the `epoch`. It is up to the smart contract
+> to reward validators by their uptime and **update the validator set** for the next `epoch`. There is a
+> function `getValidatorSet` which returns the current validator set at any time.
+
+Staking is governed by staking contracts directly on Polygon. To be clear, the staking module validates on
+Polygon and does not rely on Ethereum's security, but in principle, two chains are securing the network, PoS
+client and Ethereum. Transaction checkpoints still occur on Ethereum, but Ethereum does not validate staking
+on Polygon.
+
+:::note
+
+Note that in Tendermint, an epoch is set to 1. However, PolyBFT includes the logic to set a custom
+epoch time, with the intent of each epoch being one day in blocks, or around 14000 blocks.
+
+:::
+
+A reward calculation occurs at the end of the epoch to reward the active validators in that epoch.
 
 :::caution Slashing
 
-Like in other proof-of-stake systems, validators are subject to slashing for malicious activity or poor performance.
-The slashing mechanics are still being determined, but PolyBFT will undoubtedly include a mechanism to penalize bad actors.
-Slashing a validator typically involves a penalty, such as losing some or all of their stake on the network.
+Like in other proof-of-stake systems, validators are subject to slashing for malicious activity or
+poor performance. The slashing mechanics are still being determined, but PolyBFT will undoubtedly
+include a mechanism to penalize bad actors. Slashing a validator typically involves a penalty, such
+as losing some or all of their stake on the network.
 
 Examples of malicious activities are double-signing and equivocation.
 
-Double-signing refers to the act of signing two conflicting transactions. When a validator double-signs, it creates a
-situation where the network is unable to reach consensus on the state of the blockchain, which can lead to problems such as
-an attempt to fork or network instability.
+Double-signing refers to the act of signing two conflicting transactions. When a validator double-signs,
+it creates a situation where the network is unable to reach consensus on the state of the blockchain,
+which can lead to problems such as an attempt to fork or network instability.
 
-Equivocation is another behavior that can lead to validator slashing in a PoS network. Equivocation refers to the act of a
-validator attempting to create two conflicting versions of the blockchain, which can also lead to problems such as fork or network
-instability.
+Equivocation is another behavior that can lead to validator slashing in a PoS network. Equivocation
+refers to the act of a validator attempting to create two conflicting versions of the blockchain,
+which can also lead to problems such as fork or network instability.
 
 :::
