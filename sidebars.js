@@ -1191,12 +1191,30 @@ module.exports = {
             type: "generated-index",
           },
           items: [
-            "edge/consensus/polybft",
-            "edge/consensus/poa",
-            "edge/consensus/pos-concepts",
-            "edge/consensus/pos-stake-unstake",
-            "edge/consensus/migration-to-pos",
-            "edge/consensus/bls",
+            {
+              type: "category",
+              label: "[NEW] Polygon Client",
+              link: {
+                type: "generated-index",
+              },
+              items: [
+                "edge/consensus/polybft",
+              ],
+            },
+            {
+              type: "category",
+              label: "[OLD] Polygon Edge",
+              link: {
+                type: "generated-index",
+              },
+              items: [
+                "edge/consensus/poa",
+                "edge/consensus/pos-concepts",
+                "edge/consensus/pos-stake-unstake",
+                "edge/consensus/migration-to-pos",
+                "edge/consensus/bls",
+              ],
+            },
           ],
         },
         {

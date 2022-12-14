@@ -11,10 +11,21 @@ keywords:
   - pos
 ---
 
+:::caution
+
+All the client-based documentation is being revamped due to the new
+client updates to Polygon Edge and is subject to change. Please stay
+tuned!
+
+Please also feel free to raise an issue or pull request if you have any
+queries or suggestions.
+
+:::
+
 ## Overview
 
-PolyBFT is the consensus mechanism of the Polygon client. It is composed of two core parts, a consensus engine and a
-consensus protocol.
+PolyBFT is the consensus mechanism of the Polygon client. It is composed of two
+core parts, a consensus engine and a consensus protocol.
 
 <!-- TO ADD PROPER DIAGRAM -->
 
@@ -29,9 +40,9 @@ consensus protocol.
                             |                              |
                             |                              |
               +--------------------------+    +--------------------------+
-              |         Core             |    |          IBFT            |
-              |         Smart            |    |        Consensus         |
-              |        Contracts         |    |         Engine           |
+              |          IBFT            |    |          Core            |
+              |        Consensus         |    |          Smart           |
+              |         Engine           |    |         Contracts        |
               +--------------------------+    +--------------------------+
 ```
 
@@ -143,23 +154,23 @@ Round Number of the system, and "validator n" is the selected validator.
 <!-- TO ADD PROPER DIAGRAM -->
 
 ```plaintext
-               __________          __________          __________       __________
-              |          |        |          |        |          |     |          |
-              |    x     |        |    y     |        |    z     |     | Round #  |
-              |__________|        |__________|        |__________|     |__________|
-                  |                 |                    |                 |
-                  |                 |                    |                 |
-                  |                 |                    |                 |
-               _______________________________________________________________________
-              |                                                                       |
-              |                validator proposer selection algorithm                 |
-              |_______________________________________________________________________|
-                                                  |
-                                                  |
-                                       _______________________
-                                      |                       |
-                                      |      validator n      |
-                                      |_______________________|
+       __________          __________          __________       __________
+      |          |        |          |        |          |     |          |
+      |    x     |        |    y     |        |    z     |     | Round #  |
+      |__________|        |__________|        |__________|     |__________|
+          |                 |                    |                 |
+          |                 |                    |                 |
+          |                 |                    |                 |
+       _______________________________________________________________________
+      |                                                                       |
+      |                validator proposer selection algorithm                 |
+      |_______________________________________________________________________|
+                                          |
+                                          |
+                               _______________________
+                              |                       |
+                              |      validator n      |
+                              |_______________________|
 ```
 
 :::
