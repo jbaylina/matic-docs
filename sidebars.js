@@ -128,7 +128,7 @@ module.exports = {
               },
               items: ["develop/metamask/config-polygon-on-wallet-link"],
             },
-    
+
             {
               type: "category",
               label: "Venly",
@@ -1253,6 +1253,7 @@ module.exports = {
             type: "generated-index",
           },
           items: [
+            "edge/additional-features/bridge/fxportal",
             {
               type: "category",
               label: "Chainbridge",
