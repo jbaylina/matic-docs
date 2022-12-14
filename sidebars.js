@@ -128,7 +128,7 @@ module.exports = {
               },
               items: ["develop/metamask/config-polygon-on-wallet-link"],
             },
-    
+
             {
               type: "category",
               label: "Venly",
@@ -1191,6 +1191,7 @@ module.exports = {
             type: "generated-index",
           },
           items: [
+            "edge/consensus/polybft",
             "edge/consensus/poa",
             "edge/consensus/pos-concepts",
             "edge/consensus/pos-stake-unstake",
