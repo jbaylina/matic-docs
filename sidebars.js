@@ -128,7 +128,7 @@ module.exports = {
               },
               items: ["develop/metamask/config-polygon-on-wallet-link"],
             },
-    
+
             {
               type: "category",
               label: "Venly",
@@ -1196,6 +1196,22 @@ module.exports = {
             "edge/consensus/pos-stake-unstake",
             "edge/consensus/migration-to-pos",
             "edge/consensus/bls",
+          ],
+        },
+        {
+          type: "category",
+          label: "Core contracts",
+          link: {
+            type: "generated-index",
+          },
+          items: [
+            "edge/contracts/validator-set",
+            "edge/contracts/state-sender",
+            "edge/contracts/checkpoint-manager",
+            // "edge/contracts/reward-pool",
+            // "edge/contracts/validator-queue",
+            // "edge/contracts/validator-storage",
+            // "edge/contracts/withdrawal-queue",
           ],
         },
         {
