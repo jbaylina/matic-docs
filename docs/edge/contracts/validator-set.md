@@ -1,7 +1,7 @@
 ---
 id: validator-set
 title: RootValidatorSet
-description: "List of TxPool JSON RPC commands for Polygon Edge."
+description: "The root validator set contract for Polygon Edge."
 keywords:
   - docs
   - polygon
@@ -19,7 +19,8 @@ Polygon.
 
 :::caution Current validator set
 
-To bootstrap, the `RootValidatorSet` is composed of internal validators of Polygon Technology.
+To bootstrap, the `RootValidatorSet` is composed of internal validators
+of Polygon Technology.
 
 :::
 

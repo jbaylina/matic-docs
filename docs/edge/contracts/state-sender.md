@@ -1,7 +1,7 @@
 ---
 id: state-sender
 title: StateSender
-description: "List of TxPool JSON RPC commands for Polygon Edge."
+description: "The State Sender contract for Polygon Edge"
 keywords:
   - docs
   - polygon
