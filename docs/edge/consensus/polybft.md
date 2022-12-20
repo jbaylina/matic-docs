@@ -1,7 +1,7 @@
 ---
 id: polybft
 title: PolyBFT
-description: "Explanation about PolyBFT, the consensus mechanism for the Polygon client."
+description: "Explanation about PolyBFT, the consensus mechanism for Polygon Edge."
 keywords:
   - docs
   - polygon
@@ -24,7 +24,7 @@ queries or suggestions.
 
 ## Overview
 
-PolyBFT is the consensus mechanism of the Polygon client. It is composed of two
+PolyBFT is the consensus mechanism of Polygon Edge. It is composed of two
 core parts, a consensus engine and a consensus protocol.
 
 <!-- TO ADD PROPER DIAGRAM -->
@@ -67,7 +67,7 @@ is referred to as the *sequence*.
 
 ## Consensus Engine: IBFT
 
-Specifically, the Polygon client uses [IBFT 2.0](https://github.com/0xPolygon/go-ibft) as a consensus
+Specifically, Polygon Edge uses [IBFT 2.0](https://github.com/0xPolygon/go-ibft) as a consensus
 engine to seal blocks.
 
 IBFT includes a validator pool (or set) responsible for validating candidate blocks proposed
@@ -162,7 +162,7 @@ provide specific network capabilities, and govern the network. The consensus eng
 core smart contracts that implements a staking solution and incentivization scheme which defines all the
 network's proof-of-stake rules.
 
-The Polygon client follows [delegated proof of stake consensus](../../maintain/delegate/delegate.md), where
+Polygon Edge follows [delegated proof of stake consensus](../../maintain/delegate/delegate.md), where
 delegators delegate their MATIC to back validators on the network.
 
 The consensus protocol follows a set of state transitions. While things are still being finalized, the
