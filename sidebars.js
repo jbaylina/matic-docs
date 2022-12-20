@@ -1193,7 +1193,7 @@ module.exports = {
           items: [
             {
               type: "category",
-              label: "[NEW] Polygon Client",
+              label: "[v0.7.0] Polygon Edge",
               link: {
                 type: "generated-index",
               },
@@ -1203,7 +1203,7 @@ module.exports = {
             },
             {
               type: "category",
-              label: "[OLD] Polygon Edge",
+              label: "[Legacy] Polygon Edge",
               link: {
                 type: "generated-index",
               },
