@@ -553,33 +553,9 @@ module.exports = {
         type: "generated-index",
       },
       items: [
-        {
-          type: "category",
-          label: "Faucets",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-            "develop/tools/polygon-faucet",
-            "develop/tools/alchemy-faucet",
-          ],
-        },
-        {
-          type: "category",
-          label: "Gas Station",
-          link: {
-            type: "generated-index",
-          },
-          items: ["develop/tools/polygon-gas-station"],
-        },
-        {
-          type: "category",
-          label: "Widget",
-          link: {
-            type: "generated-index",
-          },
-          items: ["develop/ethereum-polygon/tools/widget"],
-        },
+        "develop/tools/polygon-faucet",
+        "develop/tools/alchemy-faucet",
+        "develop/tools/polygon-gas-station"
       ],
     },
   ],
@@ -1010,6 +986,7 @@ module.exports = {
   ],
 
   zkEVM: [
+    "zkEVM/introduction",
     "zkEVM/develop",
     "zkEVM/overview",
     "zkEVM/proof-of-efficiency",
@@ -1372,6 +1349,7 @@ module.exports = {
         "edge/api/json-rpc-net",
         "edge/api/json-rpc-web3",
         "edge/api/json-rpc-txpool",
+        "edge/api/json-rpc-debug",
       ],
     },
     {
